@@ -27,8 +27,20 @@
         <label for="recurring">Recurring</label>
         <input type="checkbox" id="recurring" name="recurring">
 
-
+        <input type="submit" value="Create Event">
     </form>
+    <h1>Events List</h1>
+    {% for event in events %}
+    <div>
+        <p>
+            {{event.date}}: <b>{{event.name_event}}, {{event.number_of_guests}},
+                {{event.room_location}},{{event.description}}</b>
+            {% if event.recurring %}
+            <span> &#9842; </span>
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
 </body>
 
 </html>
